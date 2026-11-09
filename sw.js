@@ -1,11 +1,11 @@
 // Offline support: pages come from the network first, everything else from the cache (refreshed in the background).
 // Bump VERSION whenever files change so returning players get the new build.
-const VERSION = 'meme-mimic-v1';
+const VERSION = 'meme-mimic-v2';
 
 const CORE = [
   './',
   'index.html',
-  'css/app.css?v=1',
+  'css/app.css?v=2',
   'js/main.js', 'js/ui.js', 'js/game.js', 'js/audio.js', 'js/analyzer.js', 'js/stage.js',
   'js/library.js', 'js/icons.js', 'js/haptics.js', 'js/recorder-worklet.js',
   'vendor/three/three.module.min.js',

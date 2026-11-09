@@ -112,3 +112,14 @@ xcodebuild test -project "Meme Mimic.xcodeproj" -scheme "Meme Mimic" \
 The app uses Google Mobile Ads and downloads its ad/audio switches from the remote JSON documented in `docs/ADS-REMOTE-CONFIG.md`. On first launch it requests Apple tracking authorization, then presents Google's consent form when UMP says one is required. A privacy-choices row appears in Settings when UMP requires an entry point.
 
 Recordings stay in memory for the current turn only and are never written to disk or uploaded by the game.
+
+## Web version (mememimic.com)
+
+The game also runs in the browser, served by GitHub Pages from the root of this repo: `index.html`, `css/`, `js/`, `vendor/`, `models/`, `sounds/`, `img/`, `privacy/`, `support/`, `sw.js`. No build step: plain ES modules, three.js for the stage, Preact for the screens, all vendored.
+
+- **Play locally:** double-click `Play Meme Mimic.command` (opening `index.html` as a file doesn't work; browsers block the scripts). Add `?debug` to the URL for `window.__mm` in the console.
+- **Publish:** push to `main`. After changing files, bump `VERSION` in `sw.js` and the `?v=` on `css/app.css` in the three HTML pages so returning players don't keep their offline copy.
+- **Code:** `js/game.js` is `GameModel`, `js/analyzer.js` is `VoiceAnalyzer`, `js/stage.js` is `StageDirector` + `MascotRig`, `js/ui.js` holds every screen, `js/library.js` the characters and packs. The web plays the real meme clips from `EchoBloom/Sounds` (copied to `sounds/`).
+- **Characters:** export with `art/export_web_glb.py`, then compress: `npx @gltf-transform/cli meshopt in.glb models/<Asset>.glb`.
+- **App Store link:** set `APP_STORE_URL` in `js/library.js` to show "Get the iPhone app" in Settings.
+- `privacy/` covers both the web game and the iOS app; old `/#privacy` and `/#support` links redirect there.

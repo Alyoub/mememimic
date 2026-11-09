@@ -1,0 +1,89 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1B6B9330-AC63-4C41-B0EC-37949A09ECDF",
+        "deviceName" : "iPhone 18 Pro",
+        "exportedFileName" : "A09F96FD-D14E-482D-A346-AD5267B37544.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "09-podium_0_CEA68E6A-1196-4E70-8A15-6FFE9FBA1ACC.png",
+        "timestamp" : 1792958579.243
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1B6B9330-AC63-4C41-B0EC-37949A09ECDF",
+        "deviceName" : "iPhone 18 Pro",
+        "exportedFileName" : "92536F47-A260-48D0-A894-FE5525E9E6EB.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "08-recap_0_E95183E8-6E00-4D9D-A3AC-584EAE23D12D.png",
+        "timestamp" : 1792958441.52
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1B6B9330-AC63-4C41-B0EC-37949A09ECDF",
+        "deviceName" : "iPhone 18 Pro",
+        "exportedFileName" : "522CBE07-EF0E-41C3-85A2-C5D64F49DEC1.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "07-reveal_0_C18EC3FC-E0D1-4BFA-9DC1-A441B9204580.png",
+        "timestamp" : 1792958401.392
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1B6B9330-AC63-4C41-B0EC-37949A09ECDF",
+        "deviceName" : "iPhone 18 Pro",
+        "exportedFileName" : "F067F62A-2C85-42BA-A682-391A67845D0B.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "06-turn-ready_0_238BEF60-C1E7-49F8-8D9F-4A4727787C58.png",
+        "timestamp" : 1792958396.227
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1B6B9330-AC63-4C41-B0EC-37949A09ECDF",
+        "deviceName" : "iPhone 18 Pro",
+        "exportedFileName" : "02B8F7EA-88A5-49E9-89CE-246E5A75C5F5.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "05-turn_0_06B8D0B7-9B4B-4332-95E7-27FE7DF387C2.png",
+        "timestamp" : 1792958387.952
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1B6B9330-AC63-4C41-B0EC-37949A09ECDF",
+        "deviceName" : "iPhone 18 Pro",
+        "exportedFileName" : "8C89E18D-F143-4001-A62D-60170DFA1177.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "04-handoff_0_338C69B4-30E5-437E-AF59-36455FDB1223.png",
+        "timestamp" : 1792958384.003
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1B6B9330-AC63-4C41-B0EC-37949A09ECDF",
+        "deviceName" : "iPhone 18 Pro",
+        "exportedFileName" : "73724155-6743-4C66-9C9F-55E50BA7DD8C.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "03-packs_0_32627C15-872B-45D6-A8F7-7B0D7784E3C1.png",
+        "timestamp" : 1792958380.042
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1B6B9330-AC63-4C41-B0EC-37949A09ECDF",
+        "deviceName" : "iPhone 18 Pro",
+        "exportedFileName" : "E9F1A37C-A489-4E33-854E-E522683310D3.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "02-crew_0_DCD4F658-4996-43E3-92E5-D2CDD4FFAABF.png",
+        "timestamp" : 1792958375.912
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1B6B9330-AC63-4C41-B0EC-37949A09ECDF",
+        "deviceName" : "iPhone 18 Pro",
+        "exportedFileName" : "1F3778CA-87C6-47E5-AC09-A5A7F70090A6.png",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "01-home_0_A9944BAD-23D1-4DF8-9DEB-02B6AA53AD6A.png",
+        "timestamp" : 1792958351.983
+      }
+    ],
+    "testIdentifier" : "EchoBloomUITests/testCompleteLocalMatchUsingDemoTakes()",
+    "testIdentifierURL" : "test://com.apple.xcode/EchoBloom/EchoBloomUITests/EchoBloomUITests/testCompleteLocalMatchUsingDemoTakes"
+  }
+]

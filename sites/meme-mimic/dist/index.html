@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+  <title>Meme Mimic – Mimic Party Game Online | Copy Funny Meme Sounds</title>
+  <meta name="description" content="Play Meme Mimic free in your browser: hear a funny meme sound, mimic it with your voice, get scored out of 100 and pass the phone. A mimic party game for 1–8 players.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#26020a">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Meme Mimic">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Meme Mimic">
+  <meta property="og:title" content="Meme Mimic — Copy the sound. Win the room.">
+  <meta property="og:description" content="The mimic party game: hear a wild meme sound, copy it with your voice and get scored out of 100. Free in your browser, 1–8 players.">
+  <meta property="og:image" content="img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Meme Mimic — Copy the sound. Win the room.">
+  <meta name="twitter:description" content="Hear a meme sound, mimic it, get scored out of 100. A free party game for 1–8 players.">
+  <meta name="twitter:image" content="img/og.jpg">
+
+  <link rel="icon" type="image/png" sizes="48x48" href="img/icons/favicon-48.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/app.css?v=1">
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/three.module.min.js",
+      "three/addons/": "./vendor/three/addons/",
+      "preact": "./vendor/preact/preact.module.js",
+      "preact/hooks": "./vendor/preact/hooks.module.js",
+      "htm": "./vendor/preact/htm.module.js"
+    }
+  }
+  </script>
+  <link rel="modulepreload" href="js/main.js">
+  <link rel="modulepreload" href="js/ui.js">
+  <link rel="modulepreload" href="js/game.js">
+  <link rel="modulepreload" href="vendor/preact/preact.module.js">
+  <link rel="modulepreload" href="vendor/three/three.module.min.js">
+  <link rel="preload" href="models/PirateGal.glb" as="fetch" crossorigin>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "VideoGame",
+        "name": "Meme Mimic",
+        "alternateName": ["Meme Mimic: Party Voice Game", "Mimic Party Game"],
+        "description": "A pass-and-play mimic party game: hear a funny meme sound, copy it with your voice and get scored out of 100. 1 to 8 players, free in your browser.",
+        "genre": ["Party", "Music", "Casual"],
+        "gamePlatform": ["Web browser", "iPhone", "iPad"],
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Any",
+        "playMode": ["SinglePlayer", "MultiPlayer"],
+        "numberOfPlayers": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 8 },
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "What is Meme Mimic?", "acceptedAnswer": { "@type": "Answer", "text": "A pass-and-play party game where you mimic funny meme sounds with your voice and get scored out of 100." } },
+          { "@type": "Question", "name": "Is Meme Mimic free?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The web version is free in any modern browser on phone, tablet or computer, with no download and no account." } },
+          { "@type": "Question", "name": "How many players can play?", "acceptedAnswer": { "@type": "Answer", "text": "1 to 8 players on one device. Play solo to beat your best score, or pass the phone around the room." } },
+          { "@type": "Question", "name": "How is my impression scored?", "acceptedAnswer": { "@type": "Answer", "text": "Your take is compared with the original sound on pitch shape, rhythm and length, entirely in your browser. A deep voice copying a high squeak is judged on the shape of the pitch, not how high it is." } },
+          { "@type": "Question", "name": "Are my recordings uploaded?", "acceptedAnswer": { "@type": "Answer", "text": "No. Recordings are analyzed on your device, kept in memory for the current turn only, and never uploaded or saved." } }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <main id="app" class="app" aria-label="Meme Mimic game">
+    <div class="backdrop" aria-hidden="true">
+      <div class="bd-glow l"></div>
+      <div class="bd-glow r"></div>
+      <div class="bd-beam a"></div>
+      <div class="bd-beam b"></div>
+      <div class="bd-beam c"></div>
+      <svg class="bd-crown" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M4 88 2 27 30 61 50 4 70 61 98 27 96 88Q50 100 4 88Z"/></svg>
+      <div class="bd-floor"></div>
+    </div>
+    <canvas id="stage" aria-hidden="true"></canvas>
+    <img class="fallback-stage" alt="" src="img/characters/PirateGal.png" width="240" height="240">
+    <div class="scrim-bottom" aria-hidden="true"></div>
+    <div class="scrim-side" aria-hidden="true"></div>
+    <div class="vignette" aria-hidden="true"></div>
+    <div id="ui"></div>
+
+    <div id="splash" aria-label="Meme Mimic. Loading." role="img">
+      <div class="splash-rays"></div>
+      <div class="splash-inner">
+        <div class="splash-icon-wrap">
+          <i class="splash-ring"></i><i class="splash-ring b"></i>
+          <div class="splash-icon"><img src="img/icons/splash.jpg" alt="" width="168" height="168"></div>
+        </div>
+        <div class="splash-word" aria-hidden="true"><span style="animation-delay:.55s">M</span><span style="animation-delay:.6s">E</span><span style="animation-delay:.65s">M</span><span style="animation-delay:.7s">E</span><span style="animation-delay:.75s">&nbsp;</span><span style="animation-delay:.8s">M</span><span style="animation-delay:.85s">I</span><span style="animation-delay:.9s">M</span><span style="animation-delay:.95s">I</span><span style="animation-delay:1s">C</span></div>
+        <div class="splash-tag">Copy the sound. Win the room.</div>
+      </div>
+      <div class="splash-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    </div>
+
+    <noscript><p style="position:absolute;inset:auto 0 40% 0;z-index:40;text-align:center;font:700 18px system-ui;color:#fff">Meme Mimic needs JavaScript to run in your browser.</p></noscript>
+  </main>
+
+  <article class="info" id="about">
+    <div class="info-inner">
+      <h1>Meme Mimic — the <span>mimic party game</span> you play in your browser</h1>
+      <p class="lede">Hear a wild meme sound, mimic it as perfectly as you can, and let the game score your copy out of 100. Then pass the phone. No download, no account: it runs right here on iPhone, Android, iPad, Mac, PC and Chromebook.</p>
+      <a class="cta" href="#app">▶ Play Meme Mimic</a>
+
+      <h2>How to play</h2>
+      <ol>
+        <li><strong>Pick your character.</strong> Swipe the lineup to choose one of 17 3D characters, then add up to 8 players. Everyone picks their own.</li>
+        <li><strong>Choose sound packs and rounds.</strong> Mix any of the five packs and play 1, 3 or 5 rounds.</li>
+        <li><strong>Listen.</strong> Every round, everyone gets the same meme sound. You can hear it twice.</li>
+        <li><strong>Mimic it.</strong> After a 3‑2‑1 count-in, copy the sound into the microphone. Recording stops by itself when you go quiet.</li>
+        <li><strong>Get scored and pass.</strong> Your character judges the echo out of 100. After the last round, the winner takes the podium.</li>
+      </ol>
+
+      <h2>36 real meme sounds in five packs</h2>
+      <ul class="pack-grid">
+        <li><b>Meme Reactions</b><span>Faaah!, You What?, Emotional Damage, Okay Let's Go and more.</span></li>
+        <li><b>Silly Voices</b><span>OIIA OIIA cat, Mu-hehehe, the laughing frog, Zab Zab alien.</span></li>
+        <li><b>Worldwide &amp; Wild</b><span>Bom Dia a Todos, Du Bist Gut Genug, Man Screaming.</span></li>
+        <li><b>Brainrot</b><span>Italian brainrot, Dragon Cannelloni, Plankton AUGHHH, Cat Ringtone.</span></li>
+        <li><b>Movie &amp; TV Lines</b><span>No It's Thursday Bro, Nobody's Gonna Know, Surprise!</span></li>
+      </ul>
+
+      <h2>How the scoring works</h2>
+      <p>Meme Mimic compares your take with the original on three things, entirely in your browser:</p>
+      <ul>
+        <li><strong>Pitch (55%)</strong>: the shape of the melody, measured relative to each sound's own middle note. A deep voice copying a tiny squeak is judged on the ups and downs, not on how high it is.</li>
+        <li><strong>Rhythm (30%)</strong>: the loudness pattern over time: the bursts, pauses and build-ups.</li>
+        <li><strong>Length (15%)</strong>: how long the sound you made lasts compared to the original.</li>
+      </ul>
+      <p>The two sounds are lined up with dynamic time warping, so starting a little late or stretching a note is forgiven. A take that is too quiet isn't scored; you just go again.</p>
+
+      <h2>17 characters to play as</h2>
+      <ul class="cast">
+        <li><img src="img/characters/Ninja.png" alt="" loading="lazy" width="30" height="30">Sand Ninja</li>
+        <li><img src="img/characters/Classy.png" alt="" loading="lazy" width="30" height="30">Classy</li>
+        <li><img src="img/characters/Wizard.png" alt="" loading="lazy" width="30" height="30">Wizard</li>
+        <li><img src="img/characters/Witch.png" alt="" loading="lazy" width="30" height="30">Witch</li>
+        <li><img src="img/characters/ZombieGal.png" alt="" loading="lazy" width="30" height="30">Zombie Gal</li>
+        <li><img src="img/characters/ZombieGuy.png" alt="" loading="lazy" width="30" height="30">Zombie Guy</li>
+        <li><img src="img/characters/Chef.png" alt="" loading="lazy" width="30" height="30">Chef</li>
+        <li><img src="img/characters/Elf.png" alt="" loading="lazy" width="30" height="30">Elf</li>
+        <li><img src="img/characters/Goblin.png" alt="" loading="lazy" width="30" height="30">Goblin</li>
+        <li><img src="img/characters/KimonoGal.png" alt="" loading="lazy" width="30" height="30">Kimono Gal</li>
+        <li><img src="img/characters/KimonoGuy.png" alt="" loading="lazy" width="30" height="30">Kimono Guy</li>
+        <li><img src="img/characters/PirateGal.png" alt="" loading="lazy" width="30" height="30">Pirate Gal</li>
+        <li><img src="img/characters/PirateGuy.png" alt="" loading="lazy" width="30" height="30">Pirate Captain</li>
+        <li><img src="img/characters/Soldier.png" alt="" loading="lazy" width="30" height="30">Soldier</li>
+        <li><img src="img/characters/Suit.png" alt="" loading="lazy" width="30" height="30">Business Boss</li>
+        <li><img src="img/characters/VikingHelmet.png" alt="" loading="lazy" width="30" height="30">Horned Viking</li>
+        <li><img src="img/characters/Viking.png" alt="" loading="lazy" width="30" height="30">Viking</li>
+      </ul>
+      <p>Every character reacts live: it leans in to listen, bounces on the count-in, stretches with your voice while you record, then cheers or slumps at your score. Tap one to make it hop.</p>
+
+      <h2>FAQ</h2>
+      <h3>What is Meme Mimic?</h3>
+      <p>A pass-and-play party game where you mimic funny meme sounds with your voice and get scored out of 100. Whether you call it a mimic party, a sound challenge or an impression battle, it's the easiest party game to start: one device, zero rules to learn.</p>
+      <h3>Is Meme Mimic free to play online?</h3>
+      <p>Yes. The web version is free in any modern browser on phone, tablet or computer, with no download and no account. Your crew and settings are saved on your device.</p>
+      <h3>How many players?</h3>
+      <p>1 to 8 players on one device. Play solo to beat your best score, or pass the phone and find out who's the best mimic.</p>
+      <h3>Do I need a microphone?</h3>
+      <p>For real scoring, yes: your browser will ask for microphone access the first time you record. Without one, every turn has a clearly labeled demo take so the whole game still works.</p>
+      <h3>Are my recordings uploaded?</h3>
+      <p>No. Your voice is analyzed on your device, kept in memory for the current turn only so you can replay it, and never uploaded or saved. See the <a href="privacy/">privacy policy</a>.</p>
+      <h3>Why can't the game hear me?</h3>
+      <p>Allow the microphone for this site (look for the microphone or lock icon in the address bar), get closer, and copy the sound clearly. On iPhone, also check that no other app is using the microphone.</p>
+
+      <footer class="site-footer">
+        <span>© 2026 Meme Mimic · Characters by Quaternius (CC0)</span>
+        <nav aria-label="Site"><a href="privacy/">Privacy</a><a href="support/">Support</a><a href="#app">Play</a></nav>
+      </footer>
+    </div>
+  </article>
+
+  <script>
+    // Import maps arrived in Safari 16.4 and Chrome 89. Older browsers get a clear message.
+    if (!(window.HTMLScriptElement && HTMLScriptElement.supports && HTMLScriptElement.supports('importmap'))) {
+      var s = document.getElementById('splash');
+      if (s) s.innerHTML = '<p style="position:relative;max-width:320px;text-align:center;font:800 18px/1.4 system-ui;color:#fff6e8">This browser is too old to run Meme Mimic. Update it, or try the latest Chrome, Safari, Edge or Firefox.</p>';
+    }
+  </script>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

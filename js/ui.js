@@ -535,7 +535,7 @@ function HowToPlay() {
         <span class="step-icon s${i}"><${Icon} name=${icon} size=${24} /></span>
         <div><div class="step-title">${title}</div><p class="body muted">${text}</p></div>
       </div>`)}
-      <p class="footnote faint">Everything stays on this device. Recordings are scored in your browser and never uploaded.</p>
+      <p class="footnote faint">Your recordings stay on this device. They're scored in your browser and never uploaded.</p>
       <${Chunky} onClick=${close}>Got it<//>
     </div>
   <//>`;

@@ -1,6 +1,6 @@
 // Offline support: pages come from the network first, everything else from the cache (refreshed in the background).
 // Bump VERSION whenever files change so returning players get the new build.
-const VERSION = 'meme-mimic-v2';
+const VERSION = 'meme-mimic-v3';
 
 const CORE = [
   './',

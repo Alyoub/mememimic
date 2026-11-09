@@ -9,6 +9,10 @@
   <link rel="canonical" href="https://mememimic.com/">
   <script>
     // Links to the old one-page site (mememimic.com/#privacy, #support, #how) still land right.
+    // The microphone only works over https, so send http visitors to the secure site.
+    if (location.protocol === 'http:' && /(^|\.)mememimic\.com$/.test(location.hostname)) {
+      location.replace('https://mememimic.com' + location.pathname + location.search + location.hash);
+    }
     (function () {
       function route() {
         var go = { '#privacy': 'privacy/', '#support': 'support/' }[location.hash];
@@ -19,6 +23,7 @@
       addEventListener('hashchange', route);
     })();
   </script>
+  <meta name="google-adsense-account" content="ca-pub-5520293609467248">
   <meta name="theme-color" content="#26020a">
   <meta name="color-scheme" content="dark">
   <meta name="apple-mobile-web-app-capable" content="yes">

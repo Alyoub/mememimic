@@ -1,4 +1,25 @@
 User-agent: *
 Allow: /
 
+# This repository also holds the iOS project and internal notes, which GitHub Pages
+# publishes too. They aren't part of the website, so crawlers skip them.
+# The game's own files (js, css, vendor, models, sounds, img) stay crawlable so Google
+# can render the page.
+Disallow: /EchoBloom/
+Disallow: /EchoBloomUITests/
+Disallow: /Meme%20Mimic.xcodeproj/
+Disallow: /art/
+Disallow: /artifacts/
+Disallow: /captures/
+Disallow: /chars/
+Disallow: /docs/
+Disallow: /mp3/
+Disallow: /sites/
+Disallow: /alotfi
+Disallow: /pop
+Disallow: /taha
+Disallow: /README
+Disallow: /aso
+Disallow: /*.md$
+
 Sitemap: https://mememimic.com/sitemap.xml

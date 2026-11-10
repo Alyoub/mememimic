@@ -1,0 +1,9 @@
+EchoBloom/
+EchoBloomUITests/
+Meme Mimic.xcodeproj/
+artifacts/
+captures/
+chars/
+docs/
+sites/
+*.md

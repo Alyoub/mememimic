@@ -1,0 +1,21 @@
+# GitHub Pages builds this repository with Jekyll. Only the website ships: the iOS
+# project, design files and notes stay in the repo but are left out of mememimic.com.
+# This keeps each deploy around 10 MB instead of 230 MB (big uploads were timing out)
+# and keeps internal files off the public site.
+exclude:
+  - EchoBloom/
+  - EchoBloomUITests/
+  - "Meme Mimic.xcodeproj/"
+  - artifacts/
+  - captures/
+  - chars/
+  - docs/
+  - art/
+  - mp3/
+  - README.md
+  - alotfi.md
+  - pop.md
+  - taha.md
+  - aso.md
+  - "*.md"
+  - "Play Meme Mimic.command"
